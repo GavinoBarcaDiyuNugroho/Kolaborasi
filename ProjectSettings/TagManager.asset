@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Ground
+  - Ocean
+  - Buildable
   layers:
   - Default
   - TransparentFX
@@ -11,8 +14,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Ground
+  - Unit
   - 
   - 
   - 
@@ -40,4 +43,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Ocean
+    uniqueID: 3657410143
+    locked: 0
+  - name: Ground
+    uniqueID: 979980855
+    locked: 0
+  - name: BuiltGround
+    uniqueID: 1820935887
+    locked: 0
+  - name: Unit
+    uniqueID: 2416503067
     locked: 0
