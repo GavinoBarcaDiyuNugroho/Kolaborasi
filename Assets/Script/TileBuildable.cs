@@ -8,14 +8,14 @@ public class TileBuildable : MonoBehaviour
 {
     public Tilemap groundTile;
     public List<GameObject> buildings;
+    public Transform containment;
 
     public int mainTreeQuantity;
     public int idBuilding;
 
     private void Start()
     {
-        
-        idBuilding = 0;
+        idBuilding = -1;
     }
     private void Update()
     {
@@ -24,6 +24,9 @@ public class TileBuildable : MonoBehaviour
     }
     void getTilePos()
     {
+        if (checkID())
+        {
+
         if (Input.GetMouseButtonDown(0))
         {
             var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -45,16 +48,26 @@ public class TileBuildable : MonoBehaviour
             {
                 Debug.Log("Already built!");
             }
+        }
 
         }
     }
+    public bool checkID()
+    {
+        if (idBuilding == -1) return false;
+        else return true;
+    }
+    public void resetID()
+    {
+        idBuilding = -1;
+    }
     void spawnBuilding(Vector3 position)
     {
-        GameObject building = Instantiate(buildings[idBuilding]);
+        GameObject building = Instantiate(buildings[idBuilding], containment.transform);
         building.transform.position = position;
-        
+        resetID();
     }
-    public void setIDbuilding(int id  )
+    public void setIDbuilding(int id)
     {
         Debug.Log("Set ID Building to = " + id);
         idBuilding = id;

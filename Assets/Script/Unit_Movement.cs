@@ -9,7 +9,7 @@ public class Unit_Movement : MonoBehaviour
     public Vector3 originalPos, targetPos;
     public float timeToMove = 0.2f;
     bool canMove;
-
+    public bool hasMoved;
     // Update is called once per frame
     void Update()
     {
@@ -50,6 +50,7 @@ public class Unit_Movement : MonoBehaviour
             canMove = false;
         }
     }
+    
     IEnumerator gridMovement(Vector3 direction)
     {
         isWalk = true;
@@ -66,5 +67,6 @@ public class Unit_Movement : MonoBehaviour
         transform.position = targetPos;
 
         isWalk = false;
+        hasMoved = true;
     }
 }
